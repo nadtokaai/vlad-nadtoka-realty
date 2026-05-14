@@ -1,0 +1,2 @@
+# Git LFS for images
+images/* filter=lfs diff=lfs merge=lfs -text
