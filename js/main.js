@@ -31,18 +31,40 @@ function closeMobileNav() {
   mobileNav.classList.remove('open');
   mobileOverlay.classList.remove('open');
   document.body.style.overflow = '';
+  // Let transition finish before hiding, or hide immediately
+  setTimeout(() => {
+    if (!mobileNav.classList.contains('open')) {
+      mobileNav.style.display = 'none';
+    }
+    if (!mobileOverlay.classList.contains('open')) {
+      mobileOverlay.style.display = 'none';
+    }
+  }, 300);
 }
 
 if (hamburger) {
-  hamburger.addEventListener('click', openMobileNav);
+  hamburger.addEventListener('click', () => {
+    mobileNav.style.display = 'block';
+    mobileOverlay.style.display = 'block';
+    openMobileNav();
+  });
 }
 
 if (mobileClose) {
-  mobileClose.addEventListener('click', closeMobileNav);
+  mobileClose.addEventListener('click', () => {
+    closeMobileNav();
+    // Immediately hide on close
+    mobileNav.style.display = 'none';
+    mobileOverlay.style.display = 'none';
+  });
 }
 
 if (mobileOverlay) {
-  mobileOverlay.addEventListener('click', closeMobileNav);
+  mobileOverlay.addEventListener('click', () => {
+    closeMobileNav();
+    mobileNav.style.display = 'none';
+    mobileOverlay.style.display = 'none';
+  });
 }
 
 mobileLinks.forEach(link => {
