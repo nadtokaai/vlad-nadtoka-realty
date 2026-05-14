@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vladnadtoka.com/sitemap.xml
+Sitemap: https://cloudflare-workers-autoconfig-vlad-nadtoka-realty.vnadtoka.workers.dev/sitemap.xml
